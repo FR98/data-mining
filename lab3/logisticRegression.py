@@ -23,6 +23,7 @@ data.head()
 data.info()
 
 ## Exploratory Data Analysis
+print("Exploratory Data Analysis")
 # Histograma Edad.
 plt.hist(data.Age)
 plt.show()
@@ -33,14 +34,18 @@ plt.show()
 
 # Crear un jointplot que muestre la distribución k de la relación de la edad vs el tiempo que diario empleado.
 seaborn.jointplot(data = data, x = 'Age', y = 'Daily Time Spent on Site', color = 'red', kind = 'kde')
+plt.show()
 
 # Crear un jointplot del Daily Time Spent on Site vs. Daily Internet Usage.
 seaborn.jointplot(data = data, x = 'Daily Time Spent on Site', y = 'Daily Internet Usage')
+plt.show()
 
 # Finalmente, crear un pairplot que separe las poblaciones de 'Clicked on Ad'.
 seaborn.pairplot(data = data, hue = 'Clicked on Ad', palette = 'bwr')
+plt.show()
 
 ## Logistic Regression
+print("Logistic Regression")
 X = data[['Daily Time Spent on Site', 'Age', 'Area Income','Daily Internet Usage', 'Male']]
 y = data['Clicked on Ad']
 
@@ -51,6 +56,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.33)
 clf = LogisticRegression(random_state = 0).fit(X_train, y_train)
 
 ## Predictions and Evaluations
+print("Predictions and Evaluations")
 clf.predict(X_test)
 
 # Crear un reporte de classificación (classification_report) para el modelo.
